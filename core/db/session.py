@@ -2,6 +2,7 @@ from os import getenv
 
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
 load_dotenv()
 
@@ -13,3 +14,4 @@ DB_NAME = getenv('POSTGRES_DB')
 db_url = f"postgresql://{USER}:{PASSWORD}@localhost:{DB_PORT}/{DB_NAME}"
 # sqline_url = "sqlite://"
 engine = create_engine(db_url)
+session = sessionmaker(engine)
